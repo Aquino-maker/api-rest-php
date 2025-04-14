@@ -1,22 +1,90 @@
-# API RESTful em PHP Puro - Cadastro de Produtos
+# 🛒 API de Produtos (Simples e em PHP)
 
-Esta API permite o cadastro, consulta, atualização e remoção de produtos utilizando apenas PHP puro, com dados armazenados em um arquivo `produtos.json`.
-
----
-
-## 🔧 Requisitos
-
-- PHP 7.4+
-- Ferramentas de teste como **Postman** ou **Insomnia**
+Esta é uma API REST básica em PHP que permite o gerenciamento de produtos. Os dados são salvos localmente em um arquivo `products.json`.
 
 ---
 
-## 🚀 Como rodar
+## ▶️ Como rodar
 
-1. Coloque os arquivos `api.php` e `produtos.json` em um servidor local, por exemplo com o PHP embutido:
+1. Coloque todos os arquivos em uma pasta, por exemplo: `api_rest/`
+2. Inicie um servidor local com PHP:
+```Seja o XAMPP, Laragon ou afins.
+```
 
-```bash
-php -S localhost:8000
+---
 
-2. Acesse a API em http://localhost:8000/api.php
+## 🧪 Testando com Postman ou Insomnia
 
+### 🔹 Listar todos os produtos
+
+- **Método:** GET  
+- **URL:** `http://localhost/api_rest/api/api.php`
+
+---
+
+### 🔍 Buscar produto por nome
+
+- **Método:** GET  
+- **URL:** `http://localhost/api_rest/api/api.php/products?name=mouse`
+
+---
+
+### 🔹 Obter produto por ID
+
+- **Método:** GET  
+- **URL:** `http://localhost/api_rest/api/api.php/products?id=2`
+
+---
+
+### ➕ Adicionar novo produto
+
+- **Método:** POST  
+- **URL:** `http://localhost/api_rest/api/api.php/`  
+- **Body (JSON):**
+
+```json
+{
+  "name": "Mouse Gamer",
+  "price": 199.99
+}
+```
+
+---
+
+### ✏️ Atualizar produto
+
+- **Método:** PUT  
+- **URL:** `http://localhost/api_rest/api/api.php?id=2`  
+- **Body (JSON):**
+
+```json
+{
+  "name": "Mouse RGB",
+  "price": 249.99
+}
+```
+
+---
+
+### ❌ Deletar produto
+
+- **Método:** DELETE  
+- **URL:** `http://localhost/api_rest/api/api.php/?id=1`
+
+---
+
+## 📁 Estrutura de Pastas
+
+```
+api_rest/
+├── api.php
+├── products.json
+```
+
+---
+
+## ✅ Extras
+
+- Filtro por nome com `?name=algo`
+- Sem banco de dados, 100% em arquivo JSON
+- Suporte a GET, POST, PUT, DELETE
